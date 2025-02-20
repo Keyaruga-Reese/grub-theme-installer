@@ -36,6 +36,8 @@ echo -e "${GREEN}Creating the systemd service to change theme after every reboot
 SYSTEMD_SERVICE_FILE="/etc/systemd/system/GrubThemeChanger.service"
 echo "[Unit]
 Description=Set random GRUB theme at boot
+After=GrubImageChanger.service
+Requires=GrubImageChanger.service
 
 [Service]
 Type=oneshot
