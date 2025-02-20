@@ -47,13 +47,13 @@ sleep 2
 
 # Step 3: Create a systemd service for the second script.
 echo -e "${GREEN}Creating the systemd service to change Image after every reboot${NC}"
-SYSTEMD_SERVICE_FILE="/etc/systemd/system/GrubThemeChanger.service"
+SYSTEMD_SERVICE_FILE="/etc/systemd/system/GrubImageChanger.service"
 echo "[Unit]
-Description=Set random GRUB theme at boot
+Description=Set random GRUB Image at boot
 
 [Service]
 Type=oneshot
-ExecStart=/boot/grub/themes/GrubThemeChanger.sh
+ExecStart=/boot/grub/themes/GrubImageChanger.sh
 RemainAfterExit=yes
 
 [Install]
@@ -64,6 +64,6 @@ sleep 2
 
 # Enable the systemd service to run at boot
 echo -e "${GREEN}Enabling the systemd service${NC}"
-systemctl enable GrubThemeChanger.service
+systemctl enable GrubImageChanger.service
 
 echo -e "${GREEN}Setup complete. The systemd service has been created and enabled.${NC}"
