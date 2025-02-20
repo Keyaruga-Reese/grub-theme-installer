@@ -2,8 +2,12 @@
 
 # Set variables
 TIMEZONE="/usr/share/zoneinfo/Asia/Kolkata"  # Replace with your actual timezone
-HOSTNAME="alice"  # Replace with your desired hostname
-USERNAME="merlin"  # Replace with your desired username
+
+# Prompt for desired hostname
+read -p "Enter desired hostname: " HOSTNAME
+
+# Prompt for desired username
+read -p "Enter desired username: " USERNAME
 
 # Step 1: Set the timezone
 echo "Setting timezone..."
@@ -35,7 +39,9 @@ echo "$HOSTNAME" > /etc/hostname
 
 # Step 8: Install GRUB bootloader
 echo "Installing GRUB bootloader..."
-grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=Aethernum
+# Prompt for bootloader id
+read -p "Enter Bootloader Name:" bootloader
+grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id="$bootloader"
 
 # Step 9: Generate GRUB configuration
 echo "Generating GRUB configuration..."
