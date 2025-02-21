@@ -7,7 +7,7 @@ NC='\033[0m'       # No Color
 # Step 1: Download and execute the first script from GitHub.
 echo -e "${GREEN}Starting the installation of Grub Images${NC}"
 sleep 2
-FIRST_SCRIPT_URL="https://github.com/Keyaruga-Reese/grub-theme-installer/raw/refs/heads/main/Grub-Image/GrubImageInstaller.sh"  # Replace with the actual URL
+FIRST_SCRIPT_URL="https://raw.githubusercontent.com/Keyaruga-Reese/grub-theme-installer/refs/heads/main/Grub-Image/GrubImageInstaller.sh"  # Replace with the actual URL
 curl -s -O $FIRST_SCRIPT_URL
 chmod +x GrubImageInstaller.sh
 ./GrubImageInstaller.sh
@@ -21,7 +21,7 @@ sleep 2
 # Step 1: Download and execute the first script from GitHub.
 echo -e "${GREEN}Downloading Grub Images${NC}"
 sleep 2
-FIRST_SCRIPT_URL="https://github.com/Keyaruga-Reese/grub-theme-installer/raw/refs/heads/main/Grub-Image/GrubImageDownloader.sh"  # Replace with the actual URL
+FIRST_SCRIPT_URL="https://raw.githubusercontent.com/Keyaruga-Reese/grub-theme-installer/refs/heads/main/Grub-Image/GrubImageDownloader.sh"  # Replace with the actual URL
 curl -s -O $FIRST_SCRIPT_URL
 chmod +x GrubImageDownloader.sh
 ./GrubImageDownloader.sh
@@ -34,7 +34,7 @@ sleep 2
 
 # Step 2: Download the second script and move it to /boot/grub/themes.
 echo -e "${GREEN}Creating scrpit to change GRUB Image randomly${NC}"
-SECOND_SCRIPT_URL="https://github.com/Keyaruga-Reese/grub-theme-installer/raw/refs/heads/main/Grub-Image/GrubImageChanger.sh"  # Replace with the actual URL
+SECOND_SCRIPT_URL="https://raw.githubusercontent.com/Keyaruga-Reese/grub-theme-installer/refs/heads/main/Grub-Image/GrubImageChanger.sh"  # Replace with the actual URL
 curl -s -O $SECOND_SCRIPT_URL
 mv GrubImageChanger.sh /boot/grub/themes/GrubImageChanger.sh
 chmod +x /boot/grub/themes/GrubImageChanger.sh
