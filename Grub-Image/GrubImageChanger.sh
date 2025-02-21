@@ -19,10 +19,8 @@ RANDOM_IMAGE="${IMAGES[RANDOM % ${#IMAGES[@]}]}"
 # Display the chosen image for confirmation
 echo "Chosen image: $RANDOM_IMAGE"
 
-# Prepare the line to search and the new replacement
-# This regex will match "if background_image 'any_path';then"
-SEARCH_STRING="if background_image '.*';then"
-REPLACEMENT_STRING="if background_image '$RANDOM_IMAGE';then"
+# Define the new line to replace the existing background_image line
+NEW_LINE="if background_image '$RANDOM_IMAGE'; then"
 
 # Check if the TARGET_FILE exists
 if [ ! -f "$TARGET_FILE" ]; then
@@ -30,9 +28,12 @@ if [ ! -f "$TARGET_FILE" ]; then
     exit 1
 fi
 
-# Replace the specified line in the TARGET_FILE
-# The -E flag enables extended regex for sed
-sed -i.bak -E "s|$SEARCH_STRING|$REPLACEMENT_STRING|" "$TARGET_FILE"
+# Show the current line for matching
+echo "Current contents of the target line:"
+grep "^if background_image" "$TARGET_FILE"
+
+# Replace the line in the TARGET_FILE
+sed -i.bak "/^if background_image/c\\$NEW_LINE" "$TARGET_FILE"
 
 # Check if the operation was successful
 if [ $? -eq 0 ]; then
@@ -41,3 +42,7 @@ else
     echo "Failed to update $TARGET_FILE"
     exit 1
 fi
+
+# Display the modified target line for confirmation
+echo "Updated contents of the target line:"
+grep "^if background_image" "$TARGET_FILE"
