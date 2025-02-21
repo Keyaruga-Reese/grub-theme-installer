@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Specify the file to modify
-FILE="/etc/grub.d/34_custom"
+FILE="/etc/grub.d/40_custom"
 
 # Check for existence of images in the directory
 IMAGE_DIR="/usr/share/grub/images"

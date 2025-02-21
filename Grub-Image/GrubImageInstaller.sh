@@ -7,7 +7,7 @@ read -p "Please enter the partition where Arch is installed (root partition)" pa
 UUID=$(blkid -s UUID -o value "$partition")
 
 # Define the target file
-TARGET_FILE="/etc/grub.d/34_custom"
+TARGET_FILE="/etc/grub.d/40_custom"
 
 # Check if the UUID is already set in the file
 if ! grep -q "search --no-floppy --fs-uuid --set=root ${UUID}" "$TARGET_FILE"; then
