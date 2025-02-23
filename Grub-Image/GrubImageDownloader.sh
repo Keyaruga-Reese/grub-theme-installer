@@ -5,8 +5,8 @@ TEMP_DIR=$(mktemp -d)
 
 # Define the array of GitHub zip file URLs
 ZIP_FILES=(
-    "https://github.com/Keyaruga-Reese/grub-theme-installer/raw/refs/heads/main/Grub-Image/Images-1.zip"
-    "https://github.com/Keyaruga-Reese/grub-theme-installer/raw/refs/heads/main/Grub-Image/Images-2.zip"
+    "https://github.com/Keyaruga-Reese/grub-resources/raw/refs/heads/main/Grub%20Images/Images-1.zip"
+    "https://github.com/Keyaruga-Reese/grub-resources/raw/refs/heads/main/Grub%20Images/Images-2.zip"
     # Add more zip URLs as needed
 )
 

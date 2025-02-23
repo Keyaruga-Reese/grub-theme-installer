@@ -41,7 +41,7 @@ for URL in "${URLS[@]}"; do
     echo "Downloading $THEME_NAME..."
 
     # Download the file to TEMP_DIR
-    if curl -# -L -o "$TEMP_DIR/$(basename "$URL")" "$URL"; then
+    if wget -q --show-progress -P "$TEMP_DIR/$(basename "$URL")" "$URL"; then
         echo "$THEME_NAME downloaded successfully."
     else
         echo "Failed to download $URL"
