@@ -30,7 +30,8 @@ random_theme=${available_themes[RANDOM % ${#available_themes[@]}]}
 echo "Setting GRUB_THEME to $random_theme in $GRUB_CONFIG..."
 
 # Use sed to replace the GRUB_THEME line with the new theme.
-sudo sed -i.bak "s|^GRUB_THEME=.*|GRUB_THEME=\"${THEME_DIR}/$random_theme/theme.txt\"|" "$GRUB_CONFIG"
+# sudo sed -i.bak "s|^GRUB_THEME=.*|GRUB_THEME=\"${THEME_DIR}/$random_theme/theme.txt\"|" "$GRUB_CONFIG"
+sudo sed -i.bak "s|^#*GRUB_THEME=.*|GRUB_THEME=\"${THEME_DIR}/$random_theme/theme.txt\"|" "$GRUB_CONFIG"
 
 # Step 4: (Optional) Update GRUB to apply changes
 # echo "Updating GRUB..."

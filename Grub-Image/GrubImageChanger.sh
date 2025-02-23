@@ -2,7 +2,20 @@
 
 # Define the directory containing images and the target file
 IMAGE_DIR="/usr/share/grub/images"
-TARGET_FILE="/etc/grub.d/40_custom"
+TARGET_FILES=(
+    "/etc/grub.d/34_custom"
+    "/etc/grub.d/40_custom"
+)
+
+# Loop through the array and check for each file in numerical order
+for FILE in "${TARGET_FILES[@]}"; do
+    if [[ -f "$FILE" ]]; then
+        TARGET_FILE="$FILE"
+        # Perform operations on the target file
+        echo "Found and selected target file: $TARGET_FILE"
+        break  # Exit the loop after finding the first existing target file
+    fi
+done
 
 # Find all .jpeg and .png files in the specified directory
 IMAGES=("$IMAGE_DIR"/*.{jpg,jpeg,png})
