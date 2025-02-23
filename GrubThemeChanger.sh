@@ -33,7 +33,7 @@ echo "Setting GRUB_THEME to $random_theme in $GRUB_CONFIG..."
 sudo sed -i.bak "s|^GRUB_THEME=.*|GRUB_THEME=\"${THEME_DIR}/$random_theme/theme.txt\"|" "$GRUB_CONFIG"
 
 # Step 4: (Optional) Update GRUB to apply changes
-echo "Updating GRUB..."
-sudo grub-mkconfig -o /boot/grub/grub.cfg
+# echo "Updating GRUB..."
+# sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 echo "The GRUB theme has been set to $random_theme."

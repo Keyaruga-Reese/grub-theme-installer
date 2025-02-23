@@ -20,7 +20,7 @@ RANDOM_IMAGE="${IMAGES[RANDOM % ${#IMAGES[@]}]}"
 echo "Chosen image: $RANDOM_IMAGE"
 
 # Define the new line to replace the existing background_image line
-NEW_LINE="if background_image '$RANDOM_IMAGE'; then"
+NEW_LINE="if background_image $RANDOM_IMAGE; then"
 
 # Check if the TARGET_FILE exists
 if [ ! -f "$TARGET_FILE" ]; then
@@ -33,7 +33,7 @@ echo "Current contents of the target line:"
 grep "^if background_image" "$TARGET_FILE"
 
 # Replace the line in the TARGET_FILE
-sed -i.bak "/^if background_image/c\\$NEW_LINE" "$TARGET_FILE"
+sudo sed -i "/^if background_image/c\\$NEW_LINE" "$TARGET_FILE"
 
 # Check if the operation was successful
 if [ $? -eq 0 ]; then
@@ -44,5 +44,7 @@ else
 fi
 
 # Display the modified target line for confirmation
+echo "Updating grub"
+sudo grub-mkconfig -o /boot/grub/grub.cfg
 echo "Updated contents of the target line:"
 grep "^if background_image" "$TARGET_FILE"
