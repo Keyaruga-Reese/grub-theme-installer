@@ -21,6 +21,7 @@ URLS=(
     "https://github.com/Keyaruga-Reese/StarRailGrubThemes/raw/refs/heads/master/themes/Sparkle.tar.gz"
     "https://github.com/Keyaruga-Reese/StarRailGrubThemes/raw/refs/heads/master/themes/Sushang.tar.gz"
     "https://github.com/Keyaruga-Reese/StarRailGrubThemes/raw/refs/heads/master/themes/TheHerta.tar.gz"
+    "https://github.com/Keyaruga-Reese/StarRailGrubThemes/raw/refs/heads/master/themes/Tribbie.tar.gz"
     "https://github.com/Keyaruga-Reese/StarRailGrubThemes/raw/refs/heads/master/themes/Yunli.tar.gz"
 )
 
@@ -41,7 +42,7 @@ for URL in "${URLS[@]}"; do
     echo "Downloading $THEME_NAME..."
 
     # Download the file to TEMP_DIR
-    if wget -q --show-progress -P "$TEMP_DIR/$(basename "$URL")" "$URL"; then
+    if wget -q --show-progress -P "$TEMP_DIR" "$URL"; then
         echo "$THEME_NAME downloaded successfully."
     else
         echo "Failed to download $URL"
