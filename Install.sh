@@ -1,5 +1,28 @@
 #!/bin/bash
 
+# Check for required commands and install if necessary
+  # Function to check and install a package
+check_and_install() {
+    package_name=$1
+    command_name=$2
+
+    if command -v "$command_name" &> /dev/null; then
+        echo "$command_name is already installed."
+    else
+        echo "$command_name is not installed. Installing $package_name..."
+        sudo pacman -Sy --noconfirm "$package_name" > /dev/null 2>&1
+        echo "$package_name has been installed."
+    fi
+}
+
+# Check and install each tool
+check_and_install "curl" "curl"
+check_and_install "wget" "wget"
+check_and_install "unzip" "unzip"
+check_and_install "tar" "tar"
+
+echo "All tools checked and installed if necessary."
+
 # Add color escape codes
 GREEN='\033[0;32m'  # Green
 NC='\033[0m'       # No Color
