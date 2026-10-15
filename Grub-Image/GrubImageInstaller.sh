@@ -15,6 +15,7 @@ if ! grep -q "search --no-floppy --fs-uuid --set=root ${UUID}" "$TARGET_FILE"; t
     {
         echo "insmod part_gpt"
         echo "insmod ext2"
+        echo "insmod btrfs"
         echo "search --no-floppy --fs-uuid --set=root ${UUID} # UUID added by script"
         echo "insmod png"
         echo "insmod jpeg"
