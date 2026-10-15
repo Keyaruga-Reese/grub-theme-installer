@@ -62,7 +62,7 @@ echo "$HOSTNAME" > /etc/hostname
 echo "Installing GRUB bootloader..."
 # Prompt for bootloader id
 read -p "Enter Bootloader Name:" bootloader
-grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id="$bootloader"
+grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id="$bootloader"
 
 # Step 9: Generate GRUB configuration
 echo "Generating GRUB configuration..."
