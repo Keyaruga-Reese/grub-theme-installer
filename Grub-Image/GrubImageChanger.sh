@@ -33,7 +33,7 @@ RANDOM_IMAGE="${IMAGES[RANDOM % ${#IMAGES[@]}]}"
 echo "Chosen image: $RANDOM_IMAGE"
 
 # Define the new line to replace the existing background_image line
-NEW_LINE="if background_image $RANDOM_IMAGE; then"
+NEW_LINE="if background_image /@$RANDOM_IMAGE; then"
 
 # Check if the TARGET_FILE exists
 if [ ! -f "$TARGET_FILE" ]; then
